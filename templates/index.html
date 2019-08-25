@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  Classificação de Tecidos
+{% endblock %}
+
+{% block content %}
+
+  <div class="content has-text-centered">
+  <br/>
+  <h1 class="title">Selecione uma imagem</h1>
+
+  <form method="POST" action="/results" enctype="multipart/form-data">
+    <input type="file" name="photo" accept="image/*" required="required" onchange="showMyImage(this)">
+    <br/>
+    <br/>
+    <br/>
+    <button class="button **is-large is-success is-rounded**" type="submit" value="Postar">Carregar</button>
+  </form>
+
+  <br/>
+  <br/>
+  <br/>
+  
+  <script src="{{ url_for('static', filename='js/teste.js') }}"></script>
+  
+      <!-- Image preview -->
+      <figure>
+        <img id="thumbnail"/>
+      </figure>
+      
+  </div>
+
+{% endblock %}
+

@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  Results
+{% endblock %}
+
+{% block content %}
+
+</br>
+<h1 class='title'>Resultados</h1>
+<h2 class='subtitle'>Nome da imagem: {{filename}}</h2>
+
+<table class="table is-responsive" id="tabela_results">
+    <thead>
+      <tr>
+          {% for result in classes_str %}
+            
+              <td>{{result}}</td>
+            
+          {% endfor %}
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+          {% for result in class_image %}
+            {% for elem in result %}
+              
+              {% if elem == class_proba_choice %}
+                
+                <td class="is-info">{{elem}}%</td>
+                 
+              {% else %}
+                <td>{{elem}}%</td>
+              {% endif %}
+              
+            {% endfor %}
+          {% endfor %}
+      </tr>
+    </tbody>
+
+  </table>
+
+
+{% endblock%}

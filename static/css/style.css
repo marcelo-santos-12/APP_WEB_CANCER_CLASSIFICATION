@@ -1,0 +1,14 @@
+#foot {
+    position: fixed;
+    width: 100%;
+    text-align: center;
+	position: absolute;
+    bottom: 0;
+    height: 100px;
+    }
+    
+#tabela_results {
+
+    width: 100%;
+
+}
