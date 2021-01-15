@@ -10,7 +10,6 @@ try:
     from flask import Flask, render_template, request, current_app, url_for
     import os
     from classifiers.binariza_image import image_classifier
-    from werkzeug import secure_filename
     from classifiers.binariza_image import CLASSES_STR
     import cv2
     import numpy as np
@@ -33,9 +32,9 @@ def home():
     return render_template('index.html')
 
 @app.route('/results', methods=['GET', 'POST'])
-def teste(): #no caso de get, o nome da funcao deve ser o mesmo do template
-    nome = request.form.get('nome')
-    idade = request.form.get('idade')
+def results(): #no caso de get, o nome da funcao deve ser o mesmo do template
+    #nome = request.form.get('nome')
+    #idade = request.form.get('idade')
     if request.method == 'POST':
         photo = request.files.get('photo')
         code_img = np.fromstring(photo.read(), np.uint8)
@@ -48,10 +47,9 @@ def teste(): #no caso de get, o nome da funcao deve ser o mesmo do template
         classe = np.max(class_proba_image)
         print(classe)
 
-        filename = secure_filename(photo.filename)
         #photo.save()
 
-        return render_template('results.html', class_image=class_proba_image, classes_str=CLASSES_STR, class_proba_choice=classe,filename=filename)
+        return render_template('results.html', class_image=class_proba_image, classes_str=CLASSES_STR, class_proba_choice=classe,filename=photo.filename)
 
     else:
         tipo = 'Nenhuma imagem foi carregada!'
