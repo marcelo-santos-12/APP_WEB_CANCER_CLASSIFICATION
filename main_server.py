@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+# Configuracao de firewall para liberar trafego na porta do servidor
+# run: iptables -I INPUT -p tcp --dport 5000 -j ACCEPT
 
 """
 Created on Wed Jul 14 20:15:17 2019
