@@ -77,10 +77,10 @@ def image_classifier(image):
     classes = []
 
     for img in image_gen:
-        if accepted_image(img, mean_pixel_limit=50, central_pixel=150):
-            descriptor_image = lbp.compute(img)
-            #classes.append(svm.predict_proba(descriptor_image.reshape(1, -1)))
-            classes = svm.predict_proba(descriptor_image.reshape(1, -1))
+        #if accepted_image(img, mean_pixel_limit=50, central_pixel=150):
+        descriptor_image = lbp.compute(img)
+        #classes.append(svm.predict_proba(descriptor_image.reshape(1, -1)))
+        classes = svm.predict_proba(descriptor_image.reshape(1, -1))
     
     return np.round(classes, 3)
     
