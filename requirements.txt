@@ -1,0 +1,9 @@
+opencv-python
+flask
+werkzeug
+scikit-learn==0.20.4
+pandas
+numpy
+joblib==0.13.2
+scikit-image
+mahotas
